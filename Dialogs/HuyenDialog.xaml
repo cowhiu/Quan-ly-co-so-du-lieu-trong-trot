@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="test2.Dialogs.HuyenDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thong tin huyen" Height="350" Width="450"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+    <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+ <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+     <StackPanel Grid.Row="0" Margin="0,0,0,15">
+        <TextBlock Text="Ma huyen:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+   <TextBox x:Name="txtMaHuyen" Padding="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,0,0,15">
+            <TextBlock Text="Ten huyen:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtTenHuyen" Padding="10"/>
+      </StackPanel>
+        <StackPanel Grid.Row="2" Margin="0,0,0,15">
+      <TextBlock Text="Tinh/Thanh pho:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cboTinh" Padding="10"/>
+ </StackPanel>
+   <StackPanel Grid.Row="3" Margin="0,0,0,15">
+      <TextBlock Text="Mo ta:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+          <TextBox x:Name="txtMoTa" Padding="10" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+        </StackPanel>
+   <CheckBox x:Name="chkTrangThai" Grid.Row="4" Content="Dang hoat dong" IsChecked="True" Margin="0,0,0,15"/>
+   <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Right">
+   <Button Content="Luu" Width="100" Padding="10" Background="#27ae60" Foreground="White" Click="BtnSave_Click" Margin="0,0,10,0"/>
+      <Button Content="Huy" Width="100" Padding="10" Background="#95a5a6" Foreground="White" Click="BtnCancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

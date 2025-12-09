@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="test2.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:local="clr-namespace:test2"
+        mc:Ignorable="d"
+        Title="Phan mem quan ly co so du lieu trong trot" 
+ Height="700" Width="1200"
+     WindowStartupLocation="CenterScreen"
+   WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Foreground" Value="White"/>
+<Setter Property="BorderThickness" Value="0"/>
+          <Setter Property="Padding" Value="15,10"/>
+ <Setter Property="Cursor" Value="Hand"/>
+  <Setter Property="Template">
+    <Setter.Value>
+         <ControlTemplate TargetType="Button">
+          <Border Background="{TemplateBinding Background}" 
+   Padding="{TemplateBinding Padding}"
+    CornerRadius="5">
+         <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Border>
+    <ControlTemplate.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+   <Setter Property="Background" Value="#3498db"/>
+   </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+     </Setter.Value>
+ </Setter>
+        </Style>
+    <Style x:Key="SubMenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+          <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+     <Setter Property="Template">
+  <Setter.Value>
+           <ControlTemplate TargetType="Button">
+  <Border Background="{TemplateBinding Background}" 
+               Padding="{TemplateBinding Padding}"
+    BorderBrush="#ddd" BorderThickness="0,0,0,1">
+         <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Border>
+ <ControlTemplate.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+         <Setter Property="Background" Value="#e8f4fc"/>
+            </Trigger>
+             </ControlTemplate.Triggers>
+        </ControlTemplate>
+     </Setter.Value>
+        </Setter>
+ </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+     <RowDefinition Height="Auto"/>
+       <RowDefinition Height="*"/>
+ </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" Background="#2c3e50" Padding="10">
+          <Grid>
+         <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="Auto"/>
+   <ColumnDefinition Width="*"/>
+     <ColumnDefinition Width="Auto"/>
+     </Grid.ColumnDefinitions>
+       <TextBlock Text="PHAN MEM QUAN LY CO SO DU LIEU TRONG TROT" 
+        FontSize="18" FontWeight="Bold" Foreground="White" 
+ VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+  <TextBlock x:Name="txtCurrentUser" Text="Nguoi dung: Admin" 
+         Foreground="White" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <Button Content="Dang xuat" Click="BtnLogout_Click" 
+      Style="{StaticResource MenuButtonStyle}"/>
+     </StackPanel>
+          </Grid>
+   </Border>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+      
+            <Border Grid.Column="0" Background="#34495e">
+       <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+<Expander Header="Quan ly don vi hanh chinh" Foreground="White" 
+             Background="#3498db" Padding="10,8" IsExpanded="False">
+     <StackPanel Background="White">
+          <Button Content="Quan ly danh muc huyen" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucHuyen_Click"/>
+  <Button Content="Tim kiem don vi hanh chinh cap huyen" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemHuyen_Click"/>
+        <Button Content="Quan ly danh muc xa" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucXa_Click"/>
+     <Button Content="Tim kiem don vi hanh chinh cap xa" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemXa_Click"/>
+       </StackPanel>
+      </Expander>
+               
+  <Expander Header="Quan ly nguoi dung" Foreground="White" 
+     Background="#f39c12" Padding="10,8" IsExpanded="False">
+ <StackPanel Background="White">
+    <Button Content="Quan ly nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuQuanLyNguoiDung_Click"/>
+           <Button Content="Tim kiem nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemNguoiDung_Click"/>
+      <Button Content="Quan ly trang thai nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTrangThaiNguoiDung_Click"/>
+                 <Button Content="Quan ly dinh nghia quyen" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDinhNghiaQuyen_Click"/>
+               <Button Content="Quan ly nhom nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuNhomNguoiDung_Click"/>
+          <Button Content="Quan tri trang thai nhom nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTrangThaiNhomNguoiDung_Click"/>
+          <Button Content="Tra cuu nhom nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTraCuuNhomNguoiDung_Click"/>
+                <Button Content="Phan quyen cho nhom nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuPhanQuyenNhom_Click"/>
+      <Button Content="Tra cuu phan quyen cho nhom nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTraCuuPhanQuyenNhom_Click"/>
+            <Button Content="Phan quyen cho nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuPhanQuyenNguoiDung_Click"/>
+        <Button Content="Tra cuu phan quyen cho nguoi dung" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTraCuuPhanQuyenNguoiDung_Click"/>
+       </StackPanel>
+     </Expander>
+  
+        <Expander Header="Quan ly tai khoan" Foreground="White" 
+     Background="#f39c12" Padding="10,8" IsExpanded="False">
+        <StackPanel Background="White">
+             <Button Content="Dang nhap he thong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDangNhap_Click"/>
+    <Button Content="Quen mat khau" Style="{StaticResource SubMenuButtonStyle}" Click="MenuQuenMatKhau_Click"/>
+     <Button Content="Quan ly thong tin tai khoan" Style="{StaticResource SubMenuButtonStyle}" Click="MenuThongTinTaiKhoan_Click"/>
+             <Button Content="Doi mat khau" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDoiMatKhau_Click"/>
+           <Button Content="Dang xuat khoi he thong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDangXuat_Click"/>
+          </StackPanel>
+       </Expander>
+     
+            <Expander Header="Quan ly giong cay trong" Foreground="White" 
+     Background="#e67e22" Padding="10,8" IsExpanded="False">
+  <StackPanel Background="White">
+        <Button Content="Quan ly danh muc giong cay trong chinh" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucGiongCayTrong_Click"/>
+     <Button Content="Tim kiem cay trong chinh" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemCayTrongChinh_Click"/>
+<Button Content="Quan ly giong cay trong tai Viet Nam" Style="{StaticResource SubMenuButtonStyle}" Click="MenuGiongCayTrongVN_Click"/>
+ <Button Content="Tim kiem giong cay trong tai Viet Nam" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemGiongCayTrongVN_Click"/>
+ <Button Content="Quan ly danh muc cay/vuon cay dau dong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuCayDauDong_Click"/>
+        <Button Content="Tim kiem cay/vuon cay dau dong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemCayDauDong_Click"/>
+    </StackPanel>
+        </Expander>
+                
+ <Expander Header="Quan ly thuoc BVTV" Foreground="White" 
+        Background="#e67e22" Padding="10,8" IsExpanded="False">
+    <StackPanel Background="White">
+          <Button Content="Quan ly danh muc thuoc BVTV" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucThuocBVTV_Click"/>
+              <Button Content="Tim kiem thong tin thuoc ve thuc vat" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemThuocBVTV_Click"/>
+  <Button Content="Quan ly danh muc to chuc, ca nhan du dieu kien san xuat thuoc" Style="{StaticResource SubMenuButtonStyle}" Click="MenuToChucSanXuatThuoc_Click"/>
+  <Button Content="Quan ly co so mua ban thuoc BVTV" Style="{StaticResource SubMenuButtonStyle}" Click="MenuCoSoMuaBanThuoc_Click"/>
+       <Button Content="Tim kiem thong tin co so mua ban thuoc BVTV" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemCoSoMuaBanThuoc_Click"/>
+        </StackPanel>
+         </Expander>
+       
+      <Expander Header="Quan ly phan bon" Foreground="White" 
+        Background="#e67e22" Padding="10,8" IsExpanded="False">
+ <StackPanel Background="White">
+     <Button Content="Quan ly danh muc phan bon" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucPhanBon_Click"/>
+    <Button Content="Tim kiem thong tin phan bon" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemPhanBon_Click"/>
+            <Button Content="Quan ly to chuc ca nhan du dieu kien san xuat phan bon" Style="{StaticResource SubMenuButtonStyle}" Click="MenuToChucSanXuatPhanBon_Click"/>
+            <Button Content="Quan ly co so mua ban phan bon" Style="{StaticResource SubMenuButtonStyle}" Click="MenuCoSoMuaBanPhanBon_Click"/>
+          <Button Content="Tim kiem thong tin co so mua ban phan bon" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemCoSoMuaBanPhanBon_Click"/>
+     </StackPanel>
+          </Expander>
+   
+        <Expander Header="Quan ly san xuat trong trot" Foreground="White" 
+             Background="#e67e22" Padding="10,8" IsExpanded="False">
+      <StackPanel Background="White">
+  <Button Content="Quan ly danh muc co so du ATTP VietGap" Style="{StaticResource SubMenuButtonStyle}" Click="MenuCoSoVietGap_Click"/>
+      <Button Content="Tim kiem thong tin co so du ATTP VietGap" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemCoSoVietGap_Click"/>
+         <Button Content="Quan ly danh muc vung trong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuDanhMucVungTrong_Click"/>
+        <Button Content="Tim kiem thong tin vung trong" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemVungTrong_Click"/>
+         <Button Content="Quan ly danh muc sinh vat gay hai" Style="{StaticResource SubMenuButtonStyle}" Click="MenuSinhVatGayHai_Click"/>
+        <Button Content="Cap nhat tinh hinh sinh vat gay hai" Style="{StaticResource SubMenuButtonStyle}" Click="MenuCapNhatSinhVatGayHai_Click"/>
+<Button Content="Quan ly danh muc tuoi sau, cap do pho bien" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTuoiSauCapDo_Click"/>
+               <Button Content="Tim kiem thong tin sinh vat gay hai tren ban do" Style="{StaticResource SubMenuButtonStyle}" Click="MenuTimKiemSinhVatGayHaiMap_Click"/>
+       </StackPanel>
+       </Expander>
+           </StackPanel>
+     </ScrollViewer>
+      </Border>
+            
+         <Border Grid.Column="1" Background="#ecf0f1">
+         <Grid>
+     <Grid.RowDefinitions>
+             <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+       </Grid.RowDefinitions>
+   
+         <Border Grid.Row="0" Background="White" Padding="15,10" 
+    BorderBrush="#ddd" BorderThickness="0,0,0,1">
+         <TextBlock x:Name="txtBreadcrumb" Text="Trang chu" FontSize="14" Foreground="#666"/>
+   </Border>
+           
+<Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+     
+        <Grid x:Name="WelcomeScreen" Grid.Row="1" Visibility="Visible">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock Text="Chao mung den voi" FontSize="24" 
+     HorizontalAlignment="Center" Foreground="#666" Margin="0,20,0,5"/>
+       <TextBlock Text="Phan mem Quan ly Co so du lieu Trong trot" 
+     FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" 
+   Foreground="#2c3e50"/>
+             <TextBlock Text="Vui long chon chuc nang tu menu ben trai de bat dau" 
+              FontSize="14" HorizontalAlignment="Center" Foreground="#888" Margin="0,20,0,0"/>
+      
+            <WrapPanel HorizontalAlignment="Center" Margin="0,40,0,0">
+             <Border Background="White" CornerRadius="10" Padding="30,20" Margin="10">
+        <StackPanel>
+         <TextBlock Text="Don vi hanh chinh" FontWeight="Bold" HorizontalAlignment="Center"/>
+     </StackPanel>
+         </Border>
+   <Border Background="White" CornerRadius="10" Padding="30,20" Margin="10">
+    <StackPanel>
+            <TextBlock Text="Giong cay trong" FontWeight="Bold" HorizontalAlignment="Center"/>
+             </StackPanel>
+    </Border>
+        <Border Background="White" CornerRadius="10" Padding="30,20" Margin="10">
+          <StackPanel>
+   <TextBlock Text="Thuoc BVTV" FontWeight="Bold" HorizontalAlignment="Center"/>
+   </StackPanel>
+           </Border>
+     <Border Background="White" CornerRadius="10" Padding="30,20" Margin="10">
+  <StackPanel>
+ <TextBlock Text="Phan bon" FontWeight="Bold" HorizontalAlignment="Center"/>
+         </StackPanel>
+        </Border>
+</WrapPanel>
+          </StackPanel>
+        </Grid>
+        </Grid>
+  </Border>
+        </Grid>
+    </Grid>
+</Window>

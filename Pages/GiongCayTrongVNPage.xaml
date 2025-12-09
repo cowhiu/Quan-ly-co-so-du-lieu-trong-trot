@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="test2.Pages.GiongCayTrongVNPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="900" Title="Giong cay trong tai Viet Nam">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+    <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="QUAN LY GIONG CAY TRONG TAI VIET NAM" FontSize="20" FontWeight="Bold" Foreground="#2c3e50" Margin="0,0,0,20"/>
+        <WrapPanel Grid.Row="1" Margin="0,0,0,15">
+            <Button Content="Them moi" Padding="15,8" Margin="5,0" Background="#27ae60" Foreground="White" Click="BtnThem_Click"/>
+         <Button Content="Sua" Padding="15,8" Margin="5,0" Background="#3498db" Foreground="White" Click="BtnSua_Click"/>
+      <Button Content="Xoa" Padding="15,8" Margin="5,0" Background="#e74c3c" Foreground="White" Click="BtnXoa_Click"/>
+            <Button Content="Lam moi" Padding="15,8" Margin="5,0" Background="#95a5a6" Foreground="White" Click="BtnLamMoi_Click"/>
+        </WrapPanel>
+     <DataGrid x:Name="dgData" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Background="White" CanUserAddRows="False">
+            <DataGrid.Columns>
+     <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+   <DataGridTextColumn Header="Ma giong" Binding="{Binding MaGiong}" Width="100"/>
+             <DataGridTextColumn Header="Ten giong" Binding="{Binding TenGiong}" Width="*"/>
+       <DataGridTextColumn Header="Nguon goc" Binding="{Binding NguonGoc}" Width="150"/>
+           <DataGridTextColumn Header="Vung trong" Binding="{Binding VungTrong}" Width="150"/>
+        <DataGridTextColumn Header="Nam cong nhan" Binding="{Binding NamCongNhan}" Width="100"/>
+  </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

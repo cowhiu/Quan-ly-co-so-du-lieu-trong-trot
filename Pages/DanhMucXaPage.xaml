@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="test2.Pages.DanhMucXaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="900"
+      Title="Quan ly danh muc Xa">
+    <Grid Margin="20">
+     <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+       <RowDefinition Height="Auto"/>
+   <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+  <TextBlock Grid.Row="0" Text="QUAN LY DANH MUC XA" FontSize="20" FontWeight="Bold" Foreground="#2c3e50" Margin="0,0,0,20"/>
+ <WrapPanel Grid.Row="1" Margin="0,0,0,15">
+            <Button Content="Them moi" Padding="15,8" Margin="5,0" Background="#27ae60" Foreground="White" Click="BtnThem_Click"/>
+            <Button Content="Sua" Padding="15,8" Margin="5,0" Background="#3498db" Foreground="White" Click="BtnSua_Click"/>
+            <Button Content="Xoa" Padding="15,8" Margin="5,0" Background="#e74c3c" Foreground="White" Click="BtnXoa_Click"/>
+    <Button Content="Lam moi" Padding="15,8" Margin="5,0" Background="#95a5a6" Foreground="White" Click="BtnLamMoi_Click"/>
+   </WrapPanel>
+        <DataGrid x:Name="dgXa" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Background="White" CanUserAddRows="False">
+        <DataGrid.Columns>
+    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="60"/>
+        <DataGridTextColumn Header="Ma Xa" Binding="{Binding MaXa}" Width="100"/>
+   <DataGridTextColumn Header="Ten Xa" Binding="{Binding TenXa}" Width="*"/>
+     <DataGridTextColumn Header="Huyen" Binding="{Binding TenHuyen}" Width="150"/>
+         <DataGridCheckBoxColumn Header="Trang thai" Binding="{Binding TrangThai}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="test2.Pages.CapNhatSinhVatGayHaiPage"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="900" Title="Cap nhat tinh hinh sinh vat gay hai">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+  <RowDefinition Height="Auto"/>
+       <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+   </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0" Text="CAP NHAT TINH HINH SINH VAT GAY HAI" FontSize="20" FontWeight="Bold" Foreground="#2c3e50" Margin="0,0,0,20"/>
+  <Border Grid.Row="1" Background="White" CornerRadius="5" Padding="20" Margin="0,0,0,15">
+  <Grid>
+      <Grid.ColumnDefinitions>
+         <ColumnDefinition Width="*"/>
+   <ColumnDefinition Width="*"/>
+   <ColumnDefinition Width="*"/>
+     </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+    <RowDefinition Height="Auto"/>
+    <RowDefinition Height="Auto"/>
+   </Grid.RowDefinitions>
+  <StackPanel Grid.Column="0" Margin="0,0,10,10">
+    <TextBlock Text="Sinh vat gay hai:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+    <ComboBox x:Name="cboSinhVat" Padding="8"/>
+</StackPanel>
+<StackPanel Grid.Column="1" Margin="0,0,10,10">
+     <TextBlock Text="Vung trong:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+      <ComboBox x:Name="cboVungTrong" Padding="8"/>
+      </StackPanel>
+      <StackPanel Grid.Column="2" Margin="0,0,0,10">
+    <TextBlock Text="Ngay bao cao:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+         <DatePicker x:Name="dpNgayBaoCao" Padding="8"/>
+  </StackPanel>
+   <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,10,0">
+   <TextBlock Text="Muc do:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+       <ComboBox x:Name="cboMucDo" Padding="8">
+        <ComboBoxItem Content="Nhe"/>
+     <ComboBoxItem Content="Trung binh"/>
+          <ComboBoxItem Content="Nang"/>
+       </ComboBox>
+   </StackPanel>
+     <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,10,0">
+ <TextBlock Text="Dien tich nhiem (ha):" FontWeight="SemiBold" Margin="0,0,0,5"/>
+    <TextBox x:Name="txtDienTich" Padding="8"/>
+     </StackPanel>
+   <Button Grid.Row="1" Grid.Column="2" Content="Luu bao cao" Padding="20,10" Background="#27ae60" Foreground="White" VerticalAlignment="Bottom" Click="BtnLuu_Click"/>
+   </Grid>
+        </Border>
+ <DataGrid x:Name="dgData" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True" Background="White" CanUserAddRows="False">
+    <DataGrid.Columns>
+<DataGridTextColumn Header="Ngay" Binding="{Binding NgayBaoCao, StringFormat=dd/MM/yyyy}" Width="100"/>
+     <DataGridTextColumn Header="Sinh vat" Binding="{Binding TenSinhVat}" Width="*"/>
+    <DataGridTextColumn Header="Vung trong" Binding="{Binding VungTrong}" Width="150"/>
+     <DataGridTextColumn Header="Muc do" Binding="{Binding MucDo}" Width="100"/>
+      <DataGridTextColumn Header="Dien tich (ha)" Binding="{Binding DienTich}" Width="100"/>
+   </DataGrid.Columns>
+    </DataGrid>
+    </Grid>
+</Page>
