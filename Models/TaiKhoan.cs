@@ -1,17 +1,35 @@
 namespace test2.Models
 {
     /// <summary>
-    /// Model ??i di?n cho Tài kho?n
+    /// Bang TaiKhoan - Tai khoan dang nhap
     /// </summary>
     public class TaiKhoan
     {
+        public string Ten { get; set; } = string.Empty; // Primary Key
+        public string? MatKhau { get; set; }
+        public int? QuyenID { get; set; }
+        public int? HoSoId { get; set; }
+    }
+
+    /// <summary>
+    /// Bang Quyen - Quyen han
+    /// </summary>
+    public class Quyen
+    {
         public int Id { get; set; }
-        public string TenDangNhap { get; set; } = string.Empty;
-        public string MatKhau { get; set; } = string.Empty;
-        public int NguoiDungId { get; set; }
-        public string? HoTen { get; set; }
-        public bool TrangThai { get; set; } = true;
-        public DateTime? LanDangNhapCuoi { get; set; }
-        public DateTime NgayTao { get; set; } = DateTime.Now;
+        public string? Ten { get; set; }
+        public string? Ext { get; set; }
+    }
+
+    /// <summary>
+    /// Bang HoSo - Ho so nguoi dung
+    /// </summary>
+    public class HoSo
+    {
+        public int Id { get; set; }
+        public string? Ten { get; set; }
+        public string? SDT { get; set; }
+        public string? Email { get; set; }
+        public string? Ext { get; set; }
     }
 }

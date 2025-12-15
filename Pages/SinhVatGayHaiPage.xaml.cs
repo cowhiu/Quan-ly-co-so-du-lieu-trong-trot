@@ -7,21 +7,21 @@ namespace test2.Pages
 {
     public partial class SinhVatGayHaiPage : Page
     {
-        private ObservableCollection<SinhVatGayHai> _danhSach = new();
+        private ObservableCollection<SinhVatGayHaiCompat> _danhSach = new();
         public SinhVatGayHaiPage() { InitializeComponent(); LoadData(); }
-   private void LoadData()
-    {
-            _danhSach = new ObservableCollection<SinhVatGayHai>
-          {
-          new SinhVatGayHai { Id = 1, MaSinhVat = "SV001", TenSinhVat = "Sâu cu?n lá nh?", Loai = "Sâu", CayBiHai = "Lúa", MucDo = "N?ng" },
-  new SinhVatGayHai { Id = 2, MaSinhVat = "SV002", TenSinhVat = "R?y nâu", Loai = "R?y", CayBiHai = "Lúa", MucDo = "Trung bình" },
- new SinhVatGayHai { Id = 3, MaSinhVat = "SV003", TenSinhVat = "B?nh ??o ôn", Loai = "N?m", CayBiHai = "Lúa", MucDo = "N?ng" },
-   };
+        private void LoadData()
+        {
+            _danhSach = new ObservableCollection<SinhVatGayHaiCompat>
+            {
+                new SinhVatGayHaiCompat { Id = 1, MaSinhVat = "SV001", TenSinhVat = "Sau cuon la nho", Loai = "Sau", CayBiHai = "Lua", MucDo = "Nang" },
+                new SinhVatGayHaiCompat { Id = 2, MaSinhVat = "SV002", TenSinhVat = "Ray nau", Loai = "Ray", CayBiHai = "Lua", MucDo = "Trung binh" },
+                new SinhVatGayHaiCompat { Id = 3, MaSinhVat = "SV003", TenSinhVat = "Benh dao on", Loai = "Nam", CayBiHai = "Lua", MucDo = "Nang" },
+            };
             dgData.ItemsSource = _danhSach;
         }
-      private void BtnThem_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Thêm sinh v?t gây h?i m?i");
-        private void BtnSua_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem == null) MessageBox.Show("Vui lòng ch?n sinh v?t!"); }
-        private void BtnXoa_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem is SinhVatGayHai item && MessageBox.Show($"Xóa '{item.TenSinhVat}'?", "Xác nh?n", MessageBoxButton.YesNo) == MessageBoxResult.Yes) _danhSach.Remove(item); }
-     private void BtnLamMoi_Click(object sender, RoutedEventArgs e) => LoadData();
+        private void BtnThem_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Them sinh vat gay hai moi");
+        private void BtnSua_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem == null) MessageBox.Show("Vui long chon sinh vat!"); }
+        private void BtnXoa_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem is SinhVatGayHaiCompat item && MessageBox.Show($"Xoa '{item.TenSinhVat}'?", "Xac nhan", MessageBoxButton.YesNo) == MessageBoxResult.Yes) _danhSach.Remove(item); }
+        private void BtnLamMoi_Click(object sender, RoutedEventArgs e) => LoadData();
     }
 }

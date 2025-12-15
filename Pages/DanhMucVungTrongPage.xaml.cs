@@ -7,20 +7,20 @@ namespace test2.Pages
 {
     public partial class DanhMucVungTrongPage : Page
     {
-      private ObservableCollection<VungTrong> _danhSach = new();
+        private ObservableCollection<VungTrongCompat> _danhSach = new();
         public DanhMucVungTrongPage() { InitializeComponent(); LoadData(); }
-     private void LoadData()
+        private void LoadData()
         {
-       _danhSach = new ObservableCollection<VungTrong>
-    {
-    new VungTrong { Id = 1, MaVung = "VT001", TenVung = "Vùng tr?ng lúa ?BSCL", DiaDiem = "An Giang", DienTich = 5000, CayTrong = "Lúa" },
-       new VungTrong { Id = 2, MaVung = "VT002", TenVung = "Vùng tr?ng cà phê Tây Nguyên", DiaDiem = "??k L?k", DienTich = 3000, CayTrong = "Cà phê" },
-     };
+            _danhSach = new ObservableCollection<VungTrongCompat>
+         {
+            new VungTrongCompat { Id = 1, MaVung = "VT001", TenVung = "Vung trong lua DBSCL", DiaDiem = "An Giang", DienTich = 5000, CayTrong = "Lua" },
+    new VungTrongCompat { Id = 2, MaVung = "VT002", TenVung = "Vung trong ca phe Tay Nguyen", DiaDiem = "Dak Lak", DienTich = 3000, CayTrong = "Ca phe" },
+      };
             dgData.ItemsSource = _danhSach;
         }
-   private void BtnThem_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Thêm vùng tr?ng m?i");
-private void BtnSua_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem == null) MessageBox.Show("Vui lòng ch?n vùng tr?ng!"); }
-   private void BtnXoa_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem is VungTrong item && MessageBox.Show($"Xóa '{item.TenVung}'?", "Xác nh?n", MessageBoxButton.YesNo) == MessageBoxResult.Yes) _danhSach.Remove(item); }
-       private void BtnLamMoi_Click(object sender, RoutedEventArgs e) => LoadData();
+       private void BtnThem_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Them vung trong moi");
+        private void BtnSua_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem == null) MessageBox.Show("Vui long chon vung trong!"); }
+  private void BtnXoa_Click(object sender, RoutedEventArgs e) { if (dgData.SelectedItem is VungTrongCompat item && MessageBox.Show($"Xoa '{item.TenVung}'?", "Xac nhan", MessageBoxButton.YesNo) == MessageBoxResult.Yes) _danhSach.Remove(item); }
+   private void BtnLamMoi_Click(object sender, RoutedEventArgs e) => LoadData();
     }
 }

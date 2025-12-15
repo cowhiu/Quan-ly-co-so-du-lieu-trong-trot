@@ -1,99 +1,56 @@
 namespace test2.Models
 {
     /// <summary>
-    /// Model ??i di?n cho Thu?c b?o v? th?c v?t
+    /// Bang ThuocBVTV - Thuoc bao ve thuc vat
     /// </summary>
     public class ThuocBVTV
     {
         public int Id { get; set; }
-        public string MaThuoc { get; set; } = string.Empty;
-    public string TenThuoc { get; set; } = string.Empty;
-        public string? TenHoatChat { get; set; }
-   public string? HoatChat { get; set; }
-        public string? HamLuong { get; set; }
-    public string? DangThuoc { get; set; }
-        public string? CongDung { get; set; }
-     public string? DoiTuongPhongTru { get; set; }
-        public string? HuongDanSuDung { get; set; }
-    public string? NhaSanXuat { get; set; }
-   public string? NuocSanXuat { get; set; }
-        public bool TrangThai { get; set; } = true;
-        public DateTime NgayTao { get; set; } = DateTime.Now;
+      public string? Ten { get; set; }
+   public DateTime? NgaySX { get; set; }
+        public DateTime? HanSD { get; set; }
+        public int? VTId { get; set; }
     }
 
     /// <summary>
-    /// Model t? ch?c ?? ?i?u ki?n s?n xu?t
- /// </summary>
-    public class ToChucSanXuat
-    {
-        public int Id { get; set; }
-        public string MaToChuc { get; set; } = string.Empty;
-        public string TenToChuc { get; set; } = string.Empty;
-        public string? DiaChi { get; set; }
-     public string? SoDienThoai { get; set; }
-        public string? Email { get; set; }
-     public string? SoGCN { get; set; }
-    public DateTime? NgayCapPhep { get; set; }
-        public DateTime? NgayHetHan { get; set; }
-  public bool DangHoatDong { get; set; } = true;
-  public bool TrangThai { get; set; } = true;
-     public DateTime NgayTao { get; set; } = DateTime.Now;
-    }
-
-    /// <summary>
-    /// Model c? s? mua bán
+    /// Bang CoSoBanThuocBVTV - Co so ban thuoc BVTV
     /// </summary>
-    public class CoSoMuaBan
+    public class CoSoBanThuocBVTV
     {
         public int Id { get; set; }
-        public string MaCoSo { get; set; } = string.Empty;
-     public string TenCoSo { get; set; } = string.Empty;
-   public string? DiaChi { get; set; }
-        public int? XaId { get; set; }
-        public string? TenXa { get; set; }
- public string? ChuCoSo { get; set; }
-        public string? SoDienThoai { get; set; }
-        public string? SoGiayPhep { get; set; }
-        public DateTime? NgayCapPhep { get; set; }
-        public bool DangHoatDong { get; set; } = true;
-        public bool TrangThai { get; set; } = true;
-      public DateTime NgayTao { get; set; } = DateTime.Now;
+    public string? Ten { get; set; }
+        public string? DiaChi { get; set; }
+        public int? BanDoId { get; set; }
+ public int? LoaiId { get; set; }
     }
 
     /// <summary>
- /// Model to chuc san xuat thuoc BVTV
-  /// </summary>
-    public class ToChucSanXuatThuoc
+    /// Bang CoSoSanXuatThuocBVTV - Co so san xuat thuoc BVTV
+    /// </summary>
+    public class CoSoSanXuatThuocBVTV
+    {
+        public int Id { get; set; }
+        public string? Ten { get; set; }
+  public string? DiaChi { get; set; }
+ public int? BanDoId { get; set; }
+        public int? LoaiId { get; set; }
+    }
+
+    /// <summary>
+    /// Bang ThuocBVTV_CoSoBan - Lien ket Thuoc va Co so ban
+    /// </summary>
+    public class ThuocBVTV_CoSoBan
 {
-        public int Id { get; set; }
-   public string MaToChuc { get; set; } = string.Empty;
-  public string TenToChuc { get; set; } = string.Empty;
-     public string? DiaChi { get; set; }
-     public string? SoDienThoai { get; set; }
-   public string? Email { get; set; }
- public string? SoGiayPhep { get; set; }
-        public DateTime? NgayCapPhep { get; set; }
-        public DateTime? NgayHetHan { get; set; }
-        public bool TrangThai { get; set; } = true;
-        public DateTime NgayTao { get; set; } = DateTime.Now;
+ public int ThuocBVTVId { get; set; }
+        public int CoSoBanId { get; set; }
     }
 
     /// <summary>
-    /// Model co so mua ban thuoc BVTV
+    /// Bang ThuocBVTV_CoSoSanXuat - Lien ket Thuoc va Co so san xuat
     /// </summary>
-    public class CoSoMuaBanThuoc
+    public class ThuocBVTV_CoSoSanXuat
     {
-   public int Id { get; set; }
-        public string MaCoSo { get; set; } = string.Empty;
-  public string TenCoSo { get; set; } = string.Empty;
-        public string? DiaChi { get; set; }
-  public int? XaId { get; set; }
-        public string? TenXa { get; set; }
-        public string? ChuCoSo { get; set; }
-  public string? SoDienThoai { get; set; }
-        public string? SoGiayPhep { get; set; }
-        public DateTime? NgayCapPhep { get; set; }
-        public bool TrangThai { get; set; } = true;
-      public DateTime NgayTao { get; set; } = DateTime.Now;
+        public int ThuocBVTVId { get; set; }
+        public int CoSoSanXuatId { get; set; }
     }
 }
